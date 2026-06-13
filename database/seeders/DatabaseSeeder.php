@@ -18,8 +18,20 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Admin User',
+            'email' => 'admin@example.com',
         ]);
+
+        \App\Models\Category::factory(5)->create()->each(function ($category) {
+            \App\Models\Product::factory(4)->create([
+                'category_id' => $category->id,
+            ])->each(function ($product) {
+                \App\Models\Stock::factory()->create([
+                    'product_id' => $product->id,
+                ]);
+            });
+        });
+
+        \App\Models\Customer::factory(15)->create();
     }
 }

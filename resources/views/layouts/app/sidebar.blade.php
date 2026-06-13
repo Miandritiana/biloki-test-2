@@ -15,6 +15,18 @@
                     <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
                         {{ __('Dashboard') }}
                     </flux:sidebar.item>
+
+                    <flux:sidebar.item icon="shopping-bag" :href="route('products.index')" :current="request()->routeIs('products.*')" wire:navigate>
+                        {{ __('Products') }}
+                    </flux:sidebar.item>
+
+                    <flux:sidebar.item icon="archive-box" :href="route('stock.index')" :current="request()->routeIs('stock.index')" wire:navigate>
+                        {{ __('Stock') }}
+                    </flux:sidebar.item>
+
+                    <flux:sidebar.item icon="users" :href="route('customers.index')" :current="request()->routeIs('customers.*')" wire:navigate>
+                        {{ __('Customers') }}
+                    </flux:sidebar.item>
                 </flux:sidebar.group>
             </flux:sidebar.nav>
 
